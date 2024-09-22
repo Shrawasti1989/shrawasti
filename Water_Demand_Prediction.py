@@ -15,7 +15,7 @@ import matplotlib.pyplot as plt
 def preprocessing(Data):
     
     # Create lag features for water demand
-    for i in range(1, 8):  # Lag by 1 to 2 days
+    for i in range(1, 7):  # Lag by 1 to 2 days
         Data[f'Demand_Lag_{i}'] = Data['Demand'].shift(i)
         
     # Create lag features for temperature 
