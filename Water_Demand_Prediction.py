@@ -30,7 +30,7 @@ def preprocessing(Data):
     return Data
 
 # Cross-validation, training and diagnostic graphs
-def CVtimeseries(data, k=5):
+def CVtimeseries(data, k=10):
     data = preprocessing(data)  # Preprocess the data to create lag features
     
     features = [f'Demand_Lag_{i}' for i in range(1, 7)] #+ [f'tavg_Lag_{i}' for i in range(1, 2)]
@@ -153,7 +153,7 @@ def main():
     data = pd.merge(df_demand, df_weather, on='Date')
     
     # Perform Time Series cross-validation
-    model = CVtimeseries(data, k=5)
+    model = CVtimeseries(data, k=10)
     
     # Predict water demand for the next 7 days
     prediction(model, data)
